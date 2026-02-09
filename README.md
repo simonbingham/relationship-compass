@@ -33,8 +33,6 @@ Use the selector at the top of the page to choose `Connection`, `Reflection`, or
 - `index.html` — the complete app (HTML, CSS, JS, and embedded questions)
 - `README.md` — this file
 
-> Note: the original `questions.json` (if present) is no longer required because questions are embedded directly in `index.html`.
-
 ## Design & Technical Details
 
 - **Font**: Lora (Google Fonts) for questions
