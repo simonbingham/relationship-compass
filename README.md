@@ -1,7 +1,5 @@
 # Relationship Compass
 
-Navigate your connection with intention.
-
 ## Overview
 
 **Relationship Compass** is a lightweight single-page web app that presents curated relationship questions one at a time to prompt meaningful conversation. Questions are embedded in the app and split into two sets so you can choose the tone of your conversation.
