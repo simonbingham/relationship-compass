@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Relationship Compass — a collection of thought-provoking questions to spark meaningful conversations and deepen your connection.">
+		<meta name="keywords" content="relationships, conversation starters, reflection, couples, communication, intimacy, questions">
+		<meta name="author" content="Relationship Compass">
+		<meta name="robots" content="index, follow">
+		<meta name="theme-color" content="#1a1a1a">
+
+		<link rel="canonical" href="">
+
+		<title>Relationship Compass</title>
+
+		<meta property="og:title" content="Relationship Compass">
+		<meta property="og:description" content="Navigate your connection with intention — questions to deepen conversations and reflection.">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="favicon.svg">
+		<meta property="og:site_name" content="Relationship Compass">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Relationship Compass">
+		<meta name="twitter:description" content="Navigate your connection with intention — thought-provoking questions for meaningful conversations.">
+		<meta name="twitter:image" content="favicon.svg">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="icon" href="favicon.svg" type="image/svg+xml">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+				color: #e0e0e0;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 20px 20px 40px 20px;
+			}
+
+			.app-header {
+				text-align: center;
+				margin-bottom: 30px;
+				animation: fadeInDown 0.6s ease;
+			}
+
+			.app-title {
+				font-size: 3rem;
+				font-weight: 700;
+				color: #4a9eff;
+				margin-bottom: 12px;
+				letter-spacing: -0.5px;
+			}
+
+			.app-tagline {
+				font-size: 1.1rem;
+				color: #888;
+				font-style: italic;
+				font-weight: 300;
+			}
+
+			.card {
+				background-color: #252525;
+				border: 1px solid #3a3a3a;
+				border-radius: 16px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+				max-width: 700px;
+				width: 100%;
+				animation: fadeInUp 0.6s ease;
+			}
+
+			.card-body {
+				padding: 60px 50px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 40px;
+			}
+
+			#question {
+				font-family: 'Lora', serif;
+				font-size: 1.95rem;
+				line-height: 1.85;
+				color: #ffffff;
+				min-height: 140px;
+				display: flex;
+				align-items: center;
+				text-align: center;
+				font-weight: 500;
+				letter-spacing: 0.4px;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			}
+
+			.btn-next {
+				background: linear-gradient(135deg, #4a9eff 0%, #2e7fd4 100%);
+				border: none;
+				color: white;
+				padding: 14px 40px;
+				font-size: 1rem;
+				font-weight: 600;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+				width: 100%;
+				text-transform: uppercase;
+				letter-spacing: 0.8px;
+			}
+
+			.btn-next:hover {
+				background: linear-gradient(135deg, #5da3ff 0%, #3a8ee5 100%);
+				transform: translateY(-3px);
+				box-shadow: 0 10px 25px rgba(74, 158, 255, 0.4);
+			}
+
+			.btn-next:active {
+				transform: translateY(-1px);
+				box-shadow: 0 5px 15px rgba(74, 158, 255, 0.3);
+			}
+
+			.question-set-selector {
+				text-align: center;
+				margin-bottom: 40px;
+				animation: fadeInDown 0.6s ease;
+			}
+
+			.selector-label {
+				font-size: 1rem;
+				color: #a0a0a0;
+				display: block;
+				margin-bottom: 15px;
+				font-weight: 500;
+			}
+
+			.selector-buttons {
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.btn-set {
+				background-color: #3a3a3a;
+				border: 2px solid #3a3a3a;
+				color: #b0b0b0;
+				padding: 10px 24px;
+				font-size: 0.95rem;
+				font-weight: 600;
+				border-radius: 6px;
+				cursor: pointer;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.btn-set:hover {
+				border-color: #4a9eff;
+				color: #4a9eff;
+			}
+
+			.btn-set.active {
+				background-color: #4a9eff;
+				border-color: #4a9eff;
+				color: white;
+				box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+			}
+
+			.main {
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+				align-items: center;
+				width: 100%;
+				max-width: 760px;
+			}
+
+			.tips-modal {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.6);
+				display: none;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+				z-index: 1200;
+			}
+
+			.tips-modal-content {
+				background: #212121;
+				padding: 22px;
+				border-radius: 12px;
+				max-width: 520px;
+				width: 100%;
+				color: #d9d9d9;
+			}
+
+			.tips-modal-content .tips-list {
+				padding-left: 28px;
+				list-style-type: disc;
+				margin-top: 8px;
+			}
+
+			.tips-modal-close {
+				background: transparent;
+				border: none;
+				color: #cfcfcf;
+				font-size: 22px;
+				float: right;
+				cursor: pointer;
+			}
+
+			.tips-top-btn {
+				position: fixed;
+				top: 18px;
+				right: 18px;
+				background: rgba(255,255,255,0.04);
+				border: 1px solid rgba(255,255,255,0.06);
+				color: #cfe8ff;
+				padding: 8px 12px;
+				border-radius: 8px;
+				cursor: pointer;
+				z-index: 1300;
+				box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+			}
+
+			.skip-link {
+				position: absolute;
+				top: 8px;
+				left: 8px;
+				background: #111;
+				color: #fff;
+				padding: 6px 10px;
+				border-radius: 6px;
+				z-index: 1400;
+				transform: translateY(-100%);
+				transition: transform 0.2s ease;
+			}
+
+			.skip-link:focus {
+				transform: translateY(0);
+				outline: 2px solid #4a9eff;
+			}
+
+			@keyframes fadeInDown {
+				from {
+					opacity: 0;
+					transform: translateY(-20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@media (max-width: 600px) {
+				.app-title {
+					font-size: 2.2rem;
+				}
+
+				.app-header {
+					margin-bottom: 40px;
+				}
+
+				.card-body {
+					padding: 40px 30px;
+					gap: 30px;
+				}
+
+				#question {
+					font-size: 1.4rem;
+					min-height: 100px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<a href="#question" class="skip-link">Skip to question</a>
+
+		<div class="app-header">
+			<h1 class="app-title">Relationship Compass</h1>
+			<p class="app-tagline">A collection of thought-provoking questions designed to spark meaningful conversations and deepen your connection.</p>
+		</div>
+
+		<div class="question-set-selector">
+			<span class="selector-label">Choose your question set:</span>
+			<div class="selector-buttons">
+				<button type="button" class="btn-set active" onclick="selectQuestionSet('all', this)" id="btn-all">All Questions</button>
+				<button type="button" class="btn-set" onclick="selectQuestionSet('connection', this)" id="btn-connection">Connection</button>
+				<button type="button" class="btn-set" onclick="selectQuestionSet('reflection', this)" id="btn-reflection">Reflection</button>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="card">
+				<div class="card-body">
+					<div id="question" tabindex="0" role="region" aria-live="polite" aria-atomic="true">Loading...</div>
+					<button id="nextBtn" type="button" class="btn-next" aria-controls="question" onclick="displayNextQuestion()">Next Question</button>
+				</div>
+			</div>
+		</div>
+
+		<button class="tips-top-btn" onclick="openTipsModal()" aria-label="Tips">Tips</button>
+
+		<div class="tips-modal" id="tipsModal" role="dialog" aria-modal="true" aria-hidden="true">
+			<div class="tips-modal-content">
+				<button class="tips-modal-close" onclick="closeTipsModal()">×</button>
+				<h3>Tips for Better Conversations</h3>
+				<ul class="tips-list">
+					<li>Choose a quiet, comfortable setting.</li>
+					<li>Listen actively and without judgment.</li>
+					<li>Allow pauses — thoughtful answers can take time.</li>
+					<li>Revisit topics later if needed.</li>
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			const connectionQuestions = [
+				"What feelings are hard for you to communicate? How can I make it easier?",
+				"What is a compromise you've had to make since meeting me?",
+				"What was the most recent experience that made you feel closer to me?",
+				"What makes you feel most loved in our relationship?",
+				"If I disappeared tomorrow, what would you regret not telling me?",
+				"How do you think we can best resolve conflicts when they arise?",
+				"Are there past experiences that still affect how you view our relationship now?",
+				"What are you looking forward to most in our future together?",
+				"How can I listen and understand you better without becoming defensive?",
+				"Is there something about me that you hope I can change or improve for our relationship's sake?",
+				"Is there something from your past that you'd like to talk about more with me?",
+				"What makes you feel the most secure in your relationship?",
+				"When do you feel most understood by me?",
+				"What's a 'you' habit you think I'll eventually pick up?",
+				"What do you miss most about me when we're not together?",
+				"What do you think sets this relationship apart from your past relationships?",
+				"Which of your friends do you think has the best dynamic with their partner? What do you admire most?",
+				"What's the biggest lesson you've learned from being with me?",
+				"What do you think is the biggest cause of disconnection in our relationship?",
+				"What's one activity that we do separately that you would rather do together?",
+				"What's something you've never told me because you didn't want to change how I see you?",
+				"In what ways might I have frustrated or saddened you lately?",
+				"When do you find me the sexiest?",
+				"When do you feel most connected to me?",
+				"What is something that makes you feel instantly anxious?",
+				"What's something you wish I noticed more about you?",
+				"How do you feel about the balance of giving and receiving in our relationship?",
+				"How do you feel about the way we handle stress and challenges together?",
+				"How do you feel about the way we interact with each other's families?",
+				"How do you feel about the time we spend with our friends?",
+				"What do you think I'm afraid of?",
+				"What are the sacrifices you're most scared of that we may need to make for our future?",
+				"Is there a name I call you that you love most?",
+				"If we swapped bodies for a day, what would you love to do as me?",
+				"What are your three favourite things that you think we have in common?",
+				"What is an emotion you struggle to show me?",
+				"What mistakes have you made in past relationships that you want to avoid repeating here?",
+				"What's something you're proud of that you don't talk about much?",
+				"If we could relive one day together, which day is it?",
+				"When we get out of alignment with each other, what can we do to get back quickly?",
+				"What's a tiny luxury you wish you had more often?",
+				"How can we create more lasting memories together?",
+				"What about your past do you wish I understood better?",
+				"What's a weirdly specific smell, sound, or action related to me that makes you feel instantly safe?",
+				"What's a compliment you love receiving that people rarely give you?",
+				"If we could add one new 'rule' to our relationship that would make life better, what would it be?",
+				"Is there something you secretly like that you've been too embarrassed to tell me?",
+				"What's a recent win that meant more to you than it probably looked like?",
+				"How will I know if you get triggered by something, and what's the best way for me to respond?",
+				"If you had to choose one fantasy for us to roleplay in the bedroom, what would it be?"
+			];
+
+			const reflectionQuestions = [
+				"If you woke up tomorrow and the relationship had ended with no conversation, fallout or drama, would you be disappointed or relieved?",
+				"What are the emotions you mostly feel in relation to your partner? What are the thoughts you have most frequently? Is this how you want to feel like for the rest of your life?",
+				"Do you spend more time in the relationship or questioning the relationship?",
+				"It's 5 years from now and you're still living the exact same relational dynamic. How happy are you? What's your mental health like? What's your quality of life like?",
+				"If someone told you that you were a lot like your partner, would this be a compliment to you?",
+				"Are you truly fulfilled, or just less lonely?",
+				"Are you able to unapologetically be yourself, or do you feel the need to show up as someone different to please your partner?",
+				"Are you in love with who your partner is right now as a whole, or are you only in love with their good side, their potential, or the idea of them?",
+				"Would you want your future or imagined child to date someone like your partner?",
+				"If you and your partner had kids, would you trust your partner to raise them alone if you were to die?",
+				"Do you feel more of 'yourself' around this person? Or less?",
+				"Before your last breakup, did the same fears and thought patterns and uncertainty that you're having now show up? Were you glad it ended? If so, is it possible that your hesitation may be due to the way you're wired rather than the relationship being worth salvaging?",
+				"Are the sparks and excitement gone? Or have you evolved into a new era of your relationship?",
+				"Do you feel lonely while being in a committed relationship? Unsupported? Do you no longer feel like you're on the same team?",
+				"Does your partner add to your energy or subtract from it?",
+				"Do you feel like you can tell your partner exactly what you think and feel? Or do you need to perform and adapt yourself",
+				"Are you persuaded to stay in this relationship just because of the time and energy you have invested? If this was 2 months in, would you still stay?",
+				"If you were to have the worst day of your life, would your partner make it lighter or more complex?",
+				"If you couldn't have sex with your partner for 6 months, would you still stay together?",
+				"Are you genuinely curious about them? Are they genuinely curious about you?",
+				"If you broke up, would you actually miss them or just the fact that someone loved you?",
+				"Are your favourite moments together all distant memories way in the past or are you regularly making more?",
+				"Do you both agree on what a vision for your combined future should look like?",
+				"Think of a person who you really admire and how much effort you imagine they would put into this situation before giving up. Have you done more than that?",
+				"How quickly do you return to normalcy after an emotional incident like an argument? If single disagreements spiral into multi‑day arguments, was it always this way? Do you think it will ever change?"
+			];
+
+			const allQuestions = [...connectionQuestions, ...reflectionQuestions];
+			let activeQuestions = allQuestions;
+
+			document.getElementById('btn-all').textContent = `All Questions (${allQuestions.length})`;
+			document.getElementById('btn-connection').textContent = `Connection (${connectionQuestions.length})`;
+			document.getElementById('btn-reflection').textContent = `Reflection (${reflectionQuestions.length})`;
+
+			let shownQuestions = [];
+			let currentQuestion = null;
+			let selectedSet = 'all';
+
+			function selectQuestionSet(set, btn) {
+				selectedSet = set;
+				shownQuestions = [];
+				currentQuestion = null;
+
+				if (set === 'all') {
+					activeQuestions = allQuestions;
+				} else if (set === 'connection') {
+					activeQuestions = connectionQuestions;
+				} else if (set === 'reflection') {
+					activeQuestions = reflectionQuestions;
+				}
+
+				document.querySelectorAll('.btn-set').forEach(b => b.classList.remove('active'));
+				if (btn && btn.classList) btn.classList.add('active');
+
+				document.querySelector('.btn-next').textContent = 'Next Question';
+				document.querySelector('.btn-next').onclick = displayNextQuestion;
+
+				displayNextQuestion();
+				const next = document.getElementById('nextBtn');
+				if (next) next.focus();
+			}
+
+			function displayNextQuestion() {
+				if (shownQuestions.length === activeQuestions.length) {
+					document.getElementById('question').textContent = "You've explored all the questions! Ready to reflect on what resonates most?";
+					document.querySelector('.btn-next').textContent = 'Start Over';
+					document.querySelector('.btn-next').onclick = resetQuestions;
+					return;
+				}
+
+				const availableQuestions = activeQuestions.filter((_, index) => !shownQuestions.includes(index));
+
+				if (availableQuestions.length === 0) return;
+
+				const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+				const randomQuestion = availableQuestions[randomIndex];
+				const questionIndex = activeQuestions.indexOf(randomQuestion);
+
+				shownQuestions.push(questionIndex);
+				currentQuestion = randomQuestion;
+
+				const qEl = document.getElementById('question');
+				qEl.textContent = randomQuestion;
+				qEl.focus();
+			}
+
+			function resetQuestions() {
+				shownQuestions = [];
+				currentQuestion = null;
+				document.querySelector('.btn-next').textContent = 'Next Question';
+				document.querySelector('.btn-next').onclick = displayNextQuestion;
+				displayNextQuestion();
+			}
+
+			let _previousActiveElement = null;
+			function openTipsModal() {
+				const modal = document.getElementById('tipsModal');
+				_previousActiveElement = document.activeElement;
+				modal.style.display = 'flex';
+				modal.setAttribute('aria-hidden', 'false');
+				const closeBtn = modal.querySelector('.tips-modal-close');
+				if (closeBtn) closeBtn.focus();
+				document.addEventListener('keydown', _handleModalKeydown);
+			}
+
+			function closeTipsModal() {
+				const modal = document.getElementById('tipsModal');
+				modal.style.display = 'none';
+				modal.setAttribute('aria-hidden', 'true');
+				document.removeEventListener('keydown', _handleModalKeydown);
+				if (_previousActiveElement && _previousActiveElement.focus) _previousActiveElement.focus();
+				_previousActiveElement = null;
+			}
+
+			function _handleModalKeydown(e) {
+				const modal = document.getElementById('tipsModal');
+				if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+				if (e.key === 'Escape') {
+					e.preventDefault();
+					closeTipsModal();
+					return;
+				}
+				if (e.key === 'Tab') {
+					const focusable = modal.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+					if (focusable.length === 0) {
+						e.preventDefault();
+						return;
+					}
+					const first = focusable[0];
+					const last = focusable[focusable.length - 1];
+					if (e.shiftKey) {
+						if (document.activeElement === first) {
+							e.preventDefault();
+							last.focus();
+						}
+					} else {
+						if (document.activeElement === last) {
+							e.preventDefault();
+							first.focus();
+						}
+					}
+				}
+			}
+
+			window.addEventListener('load', function () { displayNextQuestion(); });
+		</script>
+	</body>
+</html>
